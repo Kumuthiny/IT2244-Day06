@@ -1,0 +1,104 @@
+# Q1: Get the calendar and date
+bash
+Copy code
+echo "Calendar:"
+cal
+echo "Current Date:"
+date
+
+#Q2. Get student name and marks, calculate total and average
+echo "Enter the name:"
+read name
+echo "Enter the mark for subject 1:"
+read m1
+echo "Enter the mark for subject 2:"
+read m2
+echo "Enter the mark for subject 3:"
+read m3
+
+total=$((m1 + m2 + m3))
+average=$(echo "scale=2; $total / 3" | bc)
+
+echo "Total: $total"
+echo "Average: $average"
+
+#Q3. Basic calculator with arithmetic operations
+echo "Enter the first number:"
+read a
+echo "Enter the second number:"
+read b
+
+sum=$((a + b))
+sub=$((a - b))
+div=$(echo "scale=2; $a / $b" | bc)
+mul=$((a * b))
+
+echo "Summation: $sum"
+echo "Subtraction: $sub"
+echo "Division: $div"
+echo "Multiplication: $mul"
+
+# Q4. Get day name from user input
+echo "Enter the number:"
+read num
+
+case $num in
+  1) echo "Sunday" ;;
+  2) echo "Monday" ;;
+  3) echo "Tuesday" ;;
+  4) echo "Wednesday" ;;
+  5) echo "Thursday" ;;
+  6) echo "Friday" ;;
+  7) echo "Saturday" ;;
+  *) echo "Unrecognized number" ;;
+esac
+
+
+# Q5: Verify user name
+correct_name="Mino"
+
+echo "Enter user name:"
+read user_name
+
+if [ "$user_name" = "$correct_name" ]; then
+    echo "User name is correct"
+else
+    echo "User name is incorrect"
+fi
+
+
+#!/bin/bash
+
+# Q6: Compare two numbers
+echo "Enter two numbers:"
+read num1 num2
+
+if [ "$num1" -gt "$num2" ]; then
+    echo "$num1 is greater than $num2"
+elif [ "$num1" -lt "$num2" ]; then
+    echo "$num1 is less than $num2"
+else
+    echo "$num1 is equal to $num2"
+fi
+
+
+
+#!/bin/bash
+
+# Calculator using expr
+
+echo "Enter the first number:"
+read num1
+
+echo "Enter the second number:"
+read num2
+
+sum=$(expr $num1 + $num2)
+sub=$(expr $num1 - $num2)
+div=$(expr $num1 / $num2)
+mul=$(expr $num1 \* $num2)  # Note: Use backslash before * to escape it
+
+echo "Summation: $sum"
+echo "Subtraction: $sub"
+echo "Division: $div"
+echo "Multiplication: $mul"
